@@ -1,9 +1,20 @@
 package com.technews.controller;
 
+import com.technews.model.Post;
+import com.technews.model.User;
+import com.technews.repository.UserRepository;
+import com.technews.repository.VoteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
+
     @Autowired
     UserRepository repository;
 
@@ -57,4 +68,5 @@ public class UserController {
     public void deleteUser(@PathVariable int id) {
         repository.deleteById(id);
     }
+
 }
